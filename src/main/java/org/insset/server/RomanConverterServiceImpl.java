@@ -16,7 +16,7 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
 
-    String ACTION = "valeur incorrect";
+    String MessageError = "valeur incorrect";
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         //Implement your code
@@ -36,74 +36,75 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         
         final int M = 1000;
         final int CM = 900;
-        
+        String result = "";
+        int temp = 0;
         if(nbr !=null)
         {
             if(nbr >=minIn && nbr <=maxIn)
             {
-                String result = "";
+                temp = nbr;
                  while (nbr >= M) {
                      result += "M";
-                     nbr = this.removeValue(nbr, M);
+                     temp = this.removeValue(temp, M);
                  }
                 while (nbr >= CM) {
                     result += "CM";
-                    nbr = this.removeValue(nbr, CM);
+                    temp = this.removeValue(temp, CM);
                 }
                 while (nbr >= 500) {
                     result += "D";
-                    nbr = this.removeValue(nbr, 500);
+                    temp = this.removeValue(temp, 500);
                 }
                 while (nbr >= 400) {
                     result += "CD";
-                    nbr = this.removeValue(nbr, 400);
+                    temp = this.removeValue(temp, 400);
                 }
                 while (nbr >= 100) {
                     result += "C";
-                    nbr = this.removeValue(nbr, 100);
+                    temp = this.removeValue(temp, 100);
                 }
                 while (nbr >= 90) {
                     result += "XC";
-                    nbr = this.removeValue(nbr, 90);
+                    temp = this.removeValue(temp, 90);
                 }
                 while (nbr >= 50) {
                     result += "L";
-                    nbr = this.removeValue(nbr, 50);
+                    temp = this.removeValue(temp, 50);
                 }
                 while (nbr >= 40) {
                     result += "XL";
-                    nbr = this.removeValue(nbr, 40);
+                    temp = this.removeValue(temp, 40);
                 }
                 while (nbr >= 10) {
                     result += "X";
-                    nbr = this.removeValue(nbr, 10);
+                    temp = this.removeValue(temp, 10);
                 }
                 while (nbr >= 9) {
                     result += "IX";
-                    nbr = this.removeValue(nbr, 9);
+                    temp = this.removeValue(temp, 9);
                 }
                 while (nbr >= 5) {
                     result += "V";
-                    nbr = this.removeValue(nbr, 5);
+                    temp = this.removeValue(temp, 5);
                 }
                 while (nbr >= 4) {
                     result += "IV";
-                    nbr = this.removeValue(nbr, 4);
+                    temp = this.removeValue(temp, 4);
                 }
                 while (nbr >= 1) {
                     result += "I";
-                    nbr = this.removeValue(nbr, 1);
+                    temp = this.removeValue(temp, 1);
                 }    
                 return result;
             }
             else
             {
-                throw new IllegalArgumentException(this.ACTION);
+                throw new IllegalArgumentException(this.MessageError);
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.ACTION);
+            throw new IllegalArgumentException(this.MessageError);
         }
     }
     
@@ -117,12 +118,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException(this.ACTION);
+                throw new IllegalArgumentException(this.MessageError);
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.ACTION);
+            throw new IllegalArgumentException(this.MessageError);
         }
     }
     
@@ -136,12 +137,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException(this.ACTION);
+                throw new IllegalArgumentException(this.MessageError);
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.ACTION);
+            throw new IllegalArgumentException(this.MessageError);
         }
     }
 }
