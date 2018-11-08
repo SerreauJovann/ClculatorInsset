@@ -16,7 +16,7 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
 
-    String MessageError = "valeur incorrect";
+    final String MessageError = "valeur incorrect";
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         //Implement your code
@@ -30,7 +30,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
     }
 
     @Override
-    public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException {
+    public String convertArabeToRoman(Integer nbr) {
         final int minIn = 1;
         final int maxIn = 2000;
         
@@ -43,13 +43,13 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             if(nbr >=minIn && nbr <=maxIn)
             {
                 temp = nbr;
-                 while (temp >= M) {
+                 while (temp >= 1000) {
                      result += "M";
-                     temp = this.removeValue(temp, M);
+                     temp = this.removeValue(temp, 1000);
                  }
-                while (temp >= CM) {
+                while (temp >= 900) {
                     result += "CM";
-                    temp = this.removeValue(temp, CM);
+                    temp = this.removeValue(temp, 900);
                 }
                 while (temp >= 500) {
                     result += "D";
