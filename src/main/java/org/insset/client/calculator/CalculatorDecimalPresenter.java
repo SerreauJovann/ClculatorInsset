@@ -132,6 +132,7 @@ public class CalculatorDecimalPresenter extends Composite {
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
 //                Window.alert(SERVER_ERROR);
+                errorLabelRToA.setText(caught.getMessage());
             }
 
             public void onSuccess(Integer result) {
@@ -161,6 +162,7 @@ public class CalculatorDecimalPresenter extends Composite {
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
+                errorLabelAToR.setText(caught.getMessage());
             }
 
             public void onSuccess(String result) {
