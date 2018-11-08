@@ -16,6 +16,7 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
 
+    String ACTION = "valeur incorrect";
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         //Implement your code
@@ -30,21 +31,24 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException {
-        int minIn = 1;
-        int maxIn = 2000;
-       
+        final int minIn = 1;
+        final int maxIn = 2000;
+        
+        final int M = 1000;
+        final int CM = 900;
+        
         if(nbr !=null)
         {
             if(nbr >=minIn && nbr <=maxIn)
             {
                 String result = "";
-                 while (nbr >= 1000) {
+                 while (nbr >= M) {
                      result += "M";
-                     nbr = this.removeValue(nbr, 1000);
+                     nbr = this.removeValue(nbr, M);
                  }
-                while (nbr >= 900) {
+                while (nbr >= CM) {
                     result += "CM";
-                    nbr = this.removeValue(nbr, 900);
+                    nbr = this.removeValue(nbr, CM);
                 }
                 while (nbr >= 500) {
                     result += "D";
@@ -94,12 +98,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException("valeur incorrect");
+                throw new IllegalArgumentException(this.ACTION);
             }
         }
         else
         {
-            throw new IllegalArgumentException("valeur incorrect");
+            throw new IllegalArgumentException(this.ACTION);
         }
     }
     
@@ -113,12 +117,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException("valeur incorrect");
+                throw new IllegalArgumentException(this.ACTION);
             }
         }
         else
         {
-            throw new IllegalArgumentException("valeur incorrect");
+            throw new IllegalArgumentException(this.ACTION);
         }
     }
     
@@ -132,12 +136,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException("valeur incorrect");
+                throw new IllegalArgumentException(this.ACTION);
             }
         }
         else
         {
-            throw new IllegalArgumentException("valeur incorrect");
+            throw new IllegalArgumentException(this.ACTION);
         }
     }
 }
