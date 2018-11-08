@@ -43,55 +43,55 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             if(nbr >=minIn && nbr <=maxIn)
             {
                 temp = nbr;
-                 while (nbr >= M) {
+                 while (temp >= M) {
                      result += "M";
                      temp = this.removeValue(temp, M);
                  }
-                while (nbr >= CM) {
+                while (temp >= CM) {
                     result += "CM";
                     temp = this.removeValue(temp, CM);
                 }
-                while (nbr >= 500) {
+                while (temp >= 500) {
                     result += "D";
                     temp = this.removeValue(temp, 500);
                 }
-                while (nbr >= 400) {
+                while (temp >= 400) {
                     result += "CD";
                     temp = this.removeValue(temp, 400);
                 }
-                while (nbr >= 100) {
+                while (temp >= 100) {
                     result += "C";
                     temp = this.removeValue(temp, 100);
                 }
-                while (nbr >= 90) {
+                while (temp >= 90) {
                     result += "XC";
                     temp = this.removeValue(temp, 90);
                 }
-                while (nbr >= 50) {
+                while (temp >= 50) {
                     result += "L";
                     temp = this.removeValue(temp, 50);
                 }
-                while (nbr >= 40) {
+                while (temp >= 40) {
                     result += "XL";
                     temp = this.removeValue(temp, 40);
                 }
-                while (nbr >= 10) {
+                while (temp >= 10) {
                     result += "X";
                     temp = this.removeValue(temp, 10);
                 }
-                while (nbr >= 9) {
+                while (temp >= 9) {
                     result += "IX";
                     temp = this.removeValue(temp, 9);
                 }
-                while (nbr >= 5) {
+                while (temp >= 5) {
                     result += "V";
                     temp = this.removeValue(temp, 5);
                 }
-                while (nbr >= 4) {
+                while (temp >= 4) {
                     result += "IV";
                     temp = this.removeValue(temp, 4);
                 }
-                while (nbr >= 1) {
+                while (temp >= 1) {
                     result += "I";
                     temp = this.removeValue(temp, 1);
                 }    
