@@ -94,14 +94,13 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                new IllegalArgumentException("valeur incorrect");
+                throw new IllegalArgumentException("valeur incorrect");
             }
         }
         else
         {
-            new IllegalArgumentException("valeur incorrect");
+            throw new IllegalArgumentException("valeur incorrect");
         }
-        return "";
     }
 
 }
