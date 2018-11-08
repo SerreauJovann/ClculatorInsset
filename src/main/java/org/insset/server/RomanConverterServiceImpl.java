@@ -40,55 +40,55 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
                 String result = "";
                  while (nbr >= 1000) {
                      result += "M";
-                     nbr -= 1000;
+                     nbr = this.removeValue(nbr, 1000);
                  }
                 while (nbr >= 900) {
                     result += "CM";
-                    nbr -= 900;
+                    nbr = this.removeValue(nbr, 900);
                 }
                 while (nbr >= 500) {
                     result += "D";
-                    nbr -= 500;
+                    nbr = this.removeValue(nbr, 500);
                 }
                 while (nbr >= 400) {
                     result += "CD";
-                    nbr -= 400;
+                    nbr = this.removeValue(nbr, 400);
                 }
                 while (nbr >= 100) {
                     result += "C";
-                    nbr -= 100;
+                    nbr = this.removeValue(nbr, 100);
                 }
                 while (nbr >= 90) {
                     result += "XC";
-                    nbr -= 90;
+                    nbr = this.removeValue(nbr, 90);
                 }
                 while (nbr >= 50) {
                     result += "L";
-                    nbr -= 50;
+                    nbr = this.removeValue(nbr, 50);
                 }
                 while (nbr >= 40) {
                     result += "XL";
-                    nbr -= 40;
+                    nbr = this.removeValue(nbr, 40);
                 }
                 while (nbr >= 10) {
                     result += "X";
-                    nbr -= 10;
+                    nbr = this.removeValue(nbr, 10);
                 }
                 while (nbr >= 9) {
                     result += "IX";
-                    nbr -= 9;
+                    nbr = this.removeValue(nbr, 9);
                 }
                 while (nbr >= 5) {
                     result += "V";
-                    nbr -= 5;
+                    nbr = this.removeValue(nbr, 5);
                 }
                 while (nbr >= 4) {
                     result += "IV";
-                    nbr -= 4;
+                    nbr = this.removeValue(nbr, 4);
                 }
                 while (nbr >= 1) {
                     result += "I";
-                    nbr -= 1;
+                    nbr = this.removeValue(nbr, 1);
                 }    
                 return result;
             }
@@ -102,5 +102,42 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             throw new IllegalArgumentException("valeur incorrect");
         }
     }
-
+    
+    public int addValue(Integer nbr,Integer modif)
+    {
+         if(nbr != null && modif != null)
+        {
+            if(nbr > 0 && modif >0)
+            {
+                return nbr+modif;
+            }
+            else
+            {
+                throw new IllegalArgumentException("valeur incorrect");
+            }
+        }
+        else
+        {
+            throw new IllegalArgumentException("valeur incorrect");
+        }
+    }
+    
+    public int removeValue(Integer nbr,Integer modif)
+    { 
+        if(nbr != null && modif != null)
+        {
+            if(nbr > 0 && modif >0)
+            {
+                return nbr-modif;
+            }
+            else
+            {
+                throw new IllegalArgumentException("valeur incorrect");
+            }
+        }
+        else
+        {
+            throw new IllegalArgumentException("valeur incorrect");
+        }
+    }
 }

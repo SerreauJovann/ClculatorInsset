@@ -66,4 +66,58 @@ public class CalculatorDecimalPresenterTest {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         String a = imp.convertArabeToRoman(-1);
     }
+    
+    @Test
+    public void testAddvalue(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        assertEquals(finalval,imp.addValue(val, modif)); 
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testAddvalueNullVAL(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(null, modif);
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testAddvalueNullMOdif(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(val, null);
+    }
+    
+    @Test
+    public void testRemovevalue(){
+        int val = 10;
+        int modif = 5;
+        int finalval = 5;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        assertEquals(finalval,imp.removeValue(val, modif)); 
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testRemovevalueNullVAL(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(null, modif);
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testRemovevalueOdif(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(val, null);
+    }
 }
