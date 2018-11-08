@@ -30,8 +30,25 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException {
-        //Implement your code
-        return new String("XVXX");
+       int minIn = 1;
+       int maxIn = 2000;
+       
+       if(nbr !=null)
+       {
+           if(nbr >=minIn && nbr <=maxIn)
+           {
+               
+           }
+           else
+           {
+               new IllegalArgumentException("valeur incorrect");
+           }
+       }
+       else
+       {
+            new IllegalArgumentException("valeur incorrect");
+       }
+       return "ok";
     }
 
 }
