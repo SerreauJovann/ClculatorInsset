@@ -5,14 +5,17 @@
  */
 package org.insset.client.service;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.RemoteService;
+import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 /**
  *
- * @author user
+ * @author talend
  */
-public interface ExempleServiceAsync {
-  void inverserChaine(String name, AsyncCallback<String> callback);
+@RemoteServiceRelativePath("pourcentage")
+public interface ExemplePourcentage  extends RemoteService{
+    
+    
+    
+    String inverserChaine2(String name, String name2) throws IllegalArgumentException;
 }
-

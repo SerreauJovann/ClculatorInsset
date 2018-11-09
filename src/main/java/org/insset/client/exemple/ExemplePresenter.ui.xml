@@ -24,6 +24,8 @@
                 <g:ResetButton ui:field="boutonClear" text="Clear"/>
             </g:FlowPanel>
         </g:FlowPanel>
+        
+        
     </div>
   </g:HTMLPanel>
 </ui:UiBinder>

@@ -12,7 +12,8 @@ import com.google.gwt.user.client.rpc.RemoteService;
  *
  * @author user
  */
-public interface ExempleServiceAsync {
-  void inverserChaine(String name, AsyncCallback<String> callback);
+public interface ExemplePourcentageAsync {
+    
+  void inverserChaine2(String name, String name2, AsyncCallback<String> callback);
 }
 
