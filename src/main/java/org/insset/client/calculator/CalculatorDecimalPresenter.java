@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ResetButton;
 import com.google.gwt.user.client.ui.SubmitButton;
 import com.google.gwt.user.client.ui.TextBox;
+import java.util.logging.Logger;
 import org.insset.client.message.dialogbox.DialogBoxInssetPresenter;
 import org.insset.client.service.RomanConverterService;
 import org.insset.client.service.RomanConverterServiceAsync;
@@ -88,7 +89,7 @@ public class CalculatorDecimalPresenter extends Composite {
                 convertRomanToArabe();
             }
 
-        });
+          });
         boutonClearA.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -130,8 +131,6 @@ public class CalculatorDecimalPresenter extends Composite {
         }
         service.convertRomanToArabe(valR.getText(), new AsyncCallback<Integer>() {
             public void onFailure(Throwable caught) {
-                // Show the RPC error message to the user
-//                Window.alert(SERVER_ERROR);
                 errorLabelRToA.setText(caught.getMessage());
             }
 
@@ -160,11 +159,12 @@ public class CalculatorDecimalPresenter extends Composite {
             return;
         }
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
+            @Override
             public void onFailure(Throwable caught) {
-                // Show the RPC error message to the user
+                errorLabelAToR.addStyleName("serverResponseLabelError");
                 errorLabelAToR.setText(caught.getMessage());
             }
-
+            @Override
             public void onSuccess(String result) {
                 errorLabelAToR.setText(" ");
                 new DialogBoxInssetPresenter("Convertion Arabe to Roman", valA.getText(), result);

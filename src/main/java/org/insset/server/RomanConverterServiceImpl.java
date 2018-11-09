@@ -16,7 +16,6 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
 
-    final String MessageError = "valeur incorrect";
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
         //Implement your code
@@ -29,15 +28,20 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         return 3;
     }
 
+    /**
+     *
+     * @param nbr
+     * @return
+     * @throws IllegalArgumentException
+     */
     @Override
-    public String convertArabeToRoman(Integer nbr) {
-        final int minIn = 1;
-        final int maxIn = 2000;
-        
-        final int M = 1000;
-        final int CM = 900;
+    public String convertArabeToRoman(Integer nbr) throws IllegalArgumentException{
+        int minIn = 1;
+        int maxIn = 2000;
+       
         String result = "";
         int temp = 0;
+        
         if(nbr !=null)
         {
             if(nbr >=minIn && nbr <=maxIn)
@@ -99,16 +103,23 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException(this.MessageError);
+                throw new IllegalArgumentException("valeur incorrect");
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.MessageError);
+            throw new IllegalArgumentException("valeur incorrect");
         }
     }
     
-    public int addValue(Integer nbr,Integer modif)
+    /**
+     *
+     * @param nbr
+     * @param modif
+     * @return
+     * @throws IllegalArgumentException
+     */
+    public int addValue(Integer nbr,Integer modif) throws IllegalArgumentException
     {
          if(nbr != null && modif != null)
         {
@@ -118,16 +129,23 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException(this.MessageError);
+                throw new IllegalArgumentException("valeur incorrect");
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.MessageError);
+            throw new IllegalArgumentException("valeur incorrect");
         }
     }
     
-    public int removeValue(Integer nbr,Integer modif)
+    /**
+     *
+     * @param nbr
+     * @param modif
+     * @return
+     * @throws IllegalArgumentException
+     */
+    public int removeValue(Integer nbr,Integer modif) throws IllegalArgumentException
     { 
         if(nbr != null && modif != null)
         {
@@ -137,12 +155,12 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
             }
             else
             {
-                throw new IllegalArgumentException(this.MessageError);
+                throw new IllegalArgumentException("valeur incorrect");
             }
         }
         else
         {
-            throw new IllegalArgumentException(this.MessageError);
+            throw new IllegalArgumentException("valeur incorrect");
         }
     }
 }
