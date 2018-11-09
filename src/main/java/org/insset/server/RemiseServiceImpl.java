@@ -49,7 +49,33 @@ public class RemiseServiceImpl extends RemoteServiceServlet implements
     }
 
     public String invertRemise(Float price, Float remise) throws IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(price != null && remise !=null)
+        {
+            float max = 999999;
+            float min = 1;
+            float maxPer = 100;
+            float minPer = 0;
+             if(price >=min && price <=max)
+            {
+                if(remise >= minPer && remise <= maxPer)
+                {
+                      final float prixRemiser =  price / ( 1- (remise / 100));
+                      return "Prix depart: "+prixRemiser;
+                }
+                else
+                {
+                    throw new IllegalArgumentException("Entrée non valide: Remise");
+                }
+            }
+            else
+            {
+                throw new IllegalArgumentException("Entrée non valide: Montant");
+            }
+        }
+        else
+        {
+            throw new IllegalArgumentException("Entrée non valide: Montant, Entrée non valide: Pourcentage");
+        }
     }
     
 }
