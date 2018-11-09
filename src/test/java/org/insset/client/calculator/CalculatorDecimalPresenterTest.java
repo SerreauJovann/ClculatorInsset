@@ -45,11 +45,7 @@ public class CalculatorDecimalPresenterTest {
     public void tearDown() {
     }
 
-    @Test
-    
-    /**
-     * Tests the FieldVerifier.
-     */
+   @Test  
     public void testFieldDesimal() {
         assertFalse(FieldVerifier.isValidDecimal(null));
         assertTrue(FieldVerifier.isValidDecimal(5));
@@ -114,14 +110,12 @@ public class CalculatorDecimalPresenterTest {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(val, null);
     }
-    
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void testAddvalueNullLimite(){
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(0, 5);
     }
-    
-    @org.junit.Test(expected = IllegalArgumentException.class)
+        @org.junit.Test(expected = IllegalArgumentException.class)
     public void testAddvalueNullLimiteOver(){
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(5, 0);
@@ -154,4 +148,5 @@ public class CalculatorDecimalPresenterTest {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(val, null);
     }
+    
 }
