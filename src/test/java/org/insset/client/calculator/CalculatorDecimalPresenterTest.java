@@ -60,13 +60,34 @@ public class CalculatorDecimalPresenterTest {
         String a = imp.convertArabeToRoman(10);
         assertEquals("X",a);
     }
-    
+        @Test
+    public void testCOnvertEntierallRomain() {
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        assertEquals("M",imp.convertArabeToRoman(1000));
+        assertEquals("CM",imp.convertArabeToRoman(900));
+        assertEquals("D",imp.convertArabeToRoman(500));
+        assertEquals("CD",imp.convertArabeToRoman(400));
+        assertEquals("C",imp.convertArabeToRoman(100));
+        assertEquals("XC",imp.convertArabeToRoman(90));
+        assertEquals("L",imp.convertArabeToRoman(50));
+        assertEquals("XL",imp.convertArabeToRoman(40));
+        assertEquals("X",imp.convertArabeToRoman(10));
+        assertEquals("IX",imp.convertArabeToRoman(9));
+        assertEquals("V",imp.convertArabeToRoman(5));
+        assertEquals("IV",imp.convertArabeToRoman(4));
+        assertEquals("I",imp.convertArabeToRoman(1));
+        
+    }
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void testCOnvertEntierToRomainValInco() {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         String a = imp.convertArabeToRoman(-1);
     }
-    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testCOnvertEntierToRomainValNULL() {
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        String a = imp.convertArabeToRoman(null);
+    }
     @Test
     public void testAddvalue(){
         int val = 5;
@@ -93,6 +114,19 @@ public class CalculatorDecimalPresenterTest {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(val, null);
     }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testAddvalueNullLimite(){
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(0, 5);
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testAddvalueNullLimiteOver(){
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.addValue(5, 0);
+    }
+    
     
     @Test
     public void testRemovevalue(){

@@ -52,11 +52,8 @@ public class FieldVerifier {
      * @return true if valid, false if invalid
      */
     public static boolean isValidDecimal(Integer nbr) {
-        if (nbr == null){return false;}
-        if( nbr == (int)nbr)
-        {
-            return true;
-        }
+        if (nbr == null)return false;
+        if( nbr == (int)nbr)return true;
         return false;
     }
 
