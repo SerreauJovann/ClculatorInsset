@@ -27,7 +27,15 @@
     <url-pattern>/calculatorInsset/romanConvert</url-pattern>
   </servlet-mapping>
   
-  <!-- Add your servlet -->
+  <servlet>
+    <servlet-name>remise</servlet-name>
+    <servlet-class>org.insset.server.RemiseServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>remise</servlet-name>
+    <url-pattern>/calculatorInsset/remise</url-pattern>
+  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
