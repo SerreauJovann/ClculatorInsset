@@ -116,6 +116,31 @@ public class CalculatorDecimalPresenterTest {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
         imp.addValue(val, null);
     }
+        @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testrmevalueNullVAL(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.removeValue(null, modif);
+    }
+        @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testAddvalueNullMOdif0(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.removeValue(-1, null);
+    }
+    
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void testrmvalueNullMOdif(){
+        int val = 5;
+        int modif = 5;
+        int finalval = 10;
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        imp.removeValue(val, null);
+    }
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void testAddvalueNullLimite(){
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
