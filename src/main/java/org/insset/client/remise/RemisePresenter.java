@@ -93,6 +93,7 @@ public class RemisePresenter extends Composite{
         boutonEnregistrer1.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
+                revertRemise();
             }
 
         });       
@@ -113,6 +114,24 @@ public class RemisePresenter extends Composite{
 
             public void onSuccess(String result) {
                 new DialogBoxInssetPresenter("Votre remise", "", result);
+            }
+        });
+    }
+    
+    private void revertRemise() {
+        errorLabel1.setText("");
+        final String priceText = price1.getText();
+        final String montantText = percentage1.getText();
+        final Float prixNumber = Float.parseFloat(priceText);
+        final Float remiseNumber = Float.parseFloat(montantText);
+        service.invertRemise(prixNumber,remiseNumber,new AsyncCallback<String>() {
+            public void onFailure(Throwable caught) {
+                errorLabel1.addStyleName("serverResponseLabelError");
+                errorLabel1.setText(caught.getMessage());
+            }
+
+            public void onSuccess(String result) {
+                new DialogBoxInssetPresenter("Prix départ:", "", result);
             }
         });
     }

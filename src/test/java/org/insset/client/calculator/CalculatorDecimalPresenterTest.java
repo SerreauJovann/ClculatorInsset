@@ -44,12 +44,18 @@ public class CalculatorDecimalPresenterTest {
     @After
     public void tearDown() {
     }
-
-   @Test  
+    
+    @Test  
     public void testFieldDesimal() {
-        assertFalse(FieldVerifier.isValidDecimal(null));
-        assertTrue(FieldVerifier.isValidDecimal(5));
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        assertEquals("3",String.valueOf(imp.convertRomanToArabe("a")));
     }
+    @Test  
+    public void testconvertDateYears() {
+        RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
+        assertEquals("XV/III/MX",imp.convertDateYears("a"));
+    }
+    
     @Test
     public void testCOnvertEntierToRomain() {
         RomanConverterServiceImpl imp = new RomanConverterServiceImpl();
